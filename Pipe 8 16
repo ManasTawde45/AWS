@@ -1,0 +1,90 @@
+8.	         Build pipeline project in Jenkins
+
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Compile') {
+            steps {
+                echo "Compiling project..."
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building project..."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying application..."
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline executed successfully!"
+        }
+        failure {
+            echo "Pipeline failed!"
+        }
+    }
+}
+
+
+
+
+
+
+
+16.	   Set up a basic CI pipeline using a CI/CD tool (e.g., Jenkins), Configure the pipeline to build a simple project (e.g., a "Hello World" application).
+
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello CI Pipeline!");
+    }
+}
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo "Fetching code from local folder..."
+                bat 'dir C:\\HelloPipeline'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Compiling Hello.java..."
+                bat 'javac C:\\HelloPipeline\\Hello.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo "Running application..."
+                bat 'java -cp C:\\HelloPipeline Hello'
+            }
+        }
+    }
+}
+
+
+
+
+
+
